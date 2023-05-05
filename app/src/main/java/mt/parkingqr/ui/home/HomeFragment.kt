@@ -91,9 +91,12 @@ class HomeFragment : Fragment() {
                                 if(barcodes.size == 1) {
                                     Log.d("Barcodes", "Finally barcode: ${barcodes[0].rawValue}")
                                     cameraProvider.unbindAll()
+
                                     binding.previewView.visibility = View.GONE
-                                    binding.textHome.visibility = View.VISIBLE
-                                    binding.textHome.text = barcodes[0].rawValue
+                                    binding.textHome.apply {
+                                        visibility = View.VISIBLE
+                                        text = barcodes[0].rawValue
+                                    }
                                 }
                             }
                         }
